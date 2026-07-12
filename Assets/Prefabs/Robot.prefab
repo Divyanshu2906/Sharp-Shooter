@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7926218941372151593}
   - component: {fileID: 1294543806862293452}
   - component: {fileID: 1621117238541433156}
+  - component: {fileID: 313503402640350783}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381034639924758084}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.69489443, z: -0, w: 0.71911174}
+  m_LocalRotation: {x: 0, y: -0.6948969, z: 0, w: 0.7191094}
   m_LocalPosition: {x: 19.527452, y: 1, z: -8.847054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,8 +67,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
+  m_Height: 1.5
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &1294543806862293452
@@ -107,6 +108,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemyhealth
   CurrentHealth: 0
   StartingHealth: 3
+--- !u!95 &313503402640350783
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381034639924758084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86deb0a08145be643bc4e310a15b7517, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2037764122139708803
 GameObject:
   m_ObjectHideFlags: 0
