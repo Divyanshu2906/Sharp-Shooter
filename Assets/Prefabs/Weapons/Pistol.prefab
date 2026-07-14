@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 5328741898552718059}
   serializedVersion: 2
   m_LocalRotation: {x: -0.015278418, y: 0.68318605, z: -0.016323151, w: 0.7299021}
-  m_LocalPosition: {x: 0.10093463, y: -0.14129329, z: 0.28198758}
+  m_LocalPosition: {x: 0.206, y: -0.185, z: 0.436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,6 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   MuzzleFlash: {fileID: 1197491287778209766}
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &1285238785995490209
 PrefabInstance:
   m_ObjectHideFlags: 0
