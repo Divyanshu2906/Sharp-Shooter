@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed = 30f;
+    [SerializeField] float speed = 20f;
     [SerializeField] GameObject projectileHitVFX;
 
     Rigidbody rb;

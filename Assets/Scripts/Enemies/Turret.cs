@@ -7,8 +7,8 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform turretHead;
     [SerializeField] Transform playerTargetPoint;
     [SerializeField] Transform projectileSpawnPoint;
-    [SerializeField] float fireRate = 2f;
-    [SerializeField] int damage = 2;
+    [SerializeField] float fireRate = 1f;
+    [SerializeField] int damage = 1;
 
     PlayerHealth player;
 

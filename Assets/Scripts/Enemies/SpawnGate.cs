@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnGate : MonoBehaviour
 {
     [SerializeField] GameObject robotPrefab;
-    [SerializeField] float spawnTime = 5f;
+    [SerializeField] float spawnTime = 10f;
     [SerializeField] Transform spawnPoint;
 
     PlayerHealth player;
