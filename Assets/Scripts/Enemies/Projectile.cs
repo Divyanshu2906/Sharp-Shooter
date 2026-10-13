@@ -8,10 +8,13 @@ public class Projectile : MonoBehaviour
     Rigidbody rb;
 
     int damage;
+    
+    AudioSource audiosource;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        audiosource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -24,12 +27,27 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
     }
 
-    void OnTriggerEnter(Collider other) 
+    
+    void OnTriggerEnter(Collider other)
     {
-        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        playerHealth?.TakeDamage(damage);
+        PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
 
-        Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
+
+        if (projectileHitVFX != null)
+        {
+            
+            Instantiate(
+                projectileHitVFX,
+                transform.position,
+                Quaternion.identity
+            );
+            audiosource.Play();
+        }
+
+        Destroy(gameObject);
     }
 }

@@ -9,6 +9,7 @@ public class WeaponSO : ScriptableObject
     public bool IsAutomatic = false;
     public GameObject weaponPrefab;
     public bool CanZoom = false;
+    public AudioClip ShootSound;
     public float ZoomAmount = 10f;
     public float ZoomRotationSpeed = .3f;
     public int MagazineSize = 12;   

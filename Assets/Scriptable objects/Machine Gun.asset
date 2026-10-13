@@ -18,6 +18,7 @@ MonoBehaviour:
   IsAutomatic: 1
   weaponPrefab: {fileID: 2684519530495014294, guid: b59958c13fb14a04ebab271edda11d40, type: 3}
   CanZoom: 0
+  ShootSound: {fileID: 8300000, guid: ebf23b072f5690346a71db19c74293cf, type: 3}
   ZoomAmount: 10
   ZoomRotationSpeed: 0.3
   MagazineSize: 48

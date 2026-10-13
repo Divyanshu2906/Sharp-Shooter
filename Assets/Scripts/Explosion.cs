@@ -3,7 +3,13 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] float Radius = 1.5f;
-    [SerializeField] int damage = 3;
+    [SerializeField] int damage = 1;
+    AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -26,6 +32,7 @@ public class Explosion : MonoBehaviour
             if (!playerhealth) continue;
 
             playerhealth.TakeDamage(damage);
+            audioSource.Play();
 
             break;
         }
