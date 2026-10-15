@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnGate
   robotPrefab: {fileID: 1381034639924758084, guid: 11bcbc7df1acb8f4da3bb33c2c003d64, type: 3}
-  spawnTime: 10
+  spawnTime: 7
   spawnPoint: {fileID: 7274408301417372415}
 --- !u!65 &1593691219325663480
 BoxCollider:

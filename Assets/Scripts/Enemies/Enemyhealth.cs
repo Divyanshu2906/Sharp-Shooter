@@ -17,8 +17,7 @@ public class Enemyhealth : MonoBehaviour
 
     void Start()
     {
-        winConditionManager =
-            FindFirstObjectByType<WinConditionManager>();
+        winConditionManager = FindFirstObjectByType<WinConditionManager>();
 
         if (winConditionManager != null)
             winConditionManager.AdjustEnemiesLeft(1);

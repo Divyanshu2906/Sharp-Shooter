@@ -24,6 +24,9 @@ public class WinConditionManager : MonoBehaviour
     [Header("Lose Condition")]
     [SerializeField] GameOverManager gameOverManager;
 
+    [Header("Player Controls")]
+    [SerializeField] Behaviour[] playerControlScripts;
+
     int kills;
     bool hasWon;
     Coroutine victoryCoroutine;
@@ -46,6 +49,7 @@ public class WinConditionManager : MonoBehaviour
             winCanvasGroup.alpha = 0f;
     }
 
+    
     public void AdjustEnemiesLeft(int amount)
     {
         if (hasWon)
@@ -54,17 +58,20 @@ public class WinConditionManager : MonoBehaviour
         if (gameOverManager != null && gameOverManager.IsGameOver)
             return;
 
-        enemiesLeft += amount;
+        enemiesLeft = Mathf.Max(0, enemiesLeft + amount);
 
+        if (amount > 0)
+            hasSeenEnemy = true;
+
+        // Update the UI after calculating the final count.
         if (enemiesLeftText != null)
         {
             enemiesLeftText.text = ENEMIES_LEFT_STRING + enemiesLeft;
         }
-
-        enemiesLeft = Mathf.Max(0, enemiesLeft);
-
-        if (amount > 0)
-            hasSeenEnemy = true;
+        else
+        {
+            Debug.LogError("Enemies Left Text is not assigned!", this);
+        }
 
         Debug.Log("Enemies Left: " + enemiesLeft);
 
@@ -75,10 +82,14 @@ public class WinConditionManager : MonoBehaviour
         }
     }
 
-
-
     IEnumerator VictorySequence()
     {
+
+        SetPlayerControlsEnabled(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         // Slow down the final moment.
         Time.timeScale = slowMotionScale;
 
@@ -146,6 +157,24 @@ public class WinConditionManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    
+    void SetPlayerControlsEnabled(bool isEnabled)
+    {
+        foreach (Behaviour controlScript in playerControlScripts)
+        {
+            if (controlScript == null)
+                continue;
+
+            controlScript.enabled = isEnabled;
+
+            if (controlScript is StarterAssets.StarterAssetsInputs inputs)
+            {
+                inputs.cursorLocked = isEnabled;
+                inputs.cursorInputForLook = isEnabled;
+            }
+        }
     }
 }
